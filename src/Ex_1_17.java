@@ -6,6 +6,7 @@
  * @author ik013043z1
  *
  */import java.util.Scanner;
+
 public class Ex_1_17 {
 
 	/**
@@ -44,8 +45,6 @@ public class Ex_1_17 {
 			
 			Integer num = sc.nextInt();
 			
-			
-			
 			if (num < 0) {
 				
 				System.out.println("Please enter a POSITIVE number.\n");
@@ -57,34 +56,28 @@ public class Ex_1_17 {
 			
 			// Convert the int into a string to compare each value apart
 			
-			char numbers = num.tocharArray();
+			String number = num.toString();
+			
+			char numbers[] = number.toCharArray();
 			
 			int counter = 0;
 			
 			for (int i = 0; number.length() > i; i++) {
 				
+				switch(numbers[i]) {
 				
 				
-				Integer numbers[] = num.parseInt(number.substring(i,1));
-				
-				Integer toCompare;
-				
-				
-				System.out.println(numbers[i]);
-				
-				
-			/*	if (toCompare  % 2 == 0) {
+				case '0': case '1': case '3': case '5': case '7': case '9':
+					break;
 					
-					System.out.println(toCompare + "\n");
-					
-					counter++;
-					
-				}*/
-				
-				System.out.println("There are " + counter + " even digits\n");
-				
+				case '2': case '4': case '6': case '8':
+					counter ++;
+					break;
+				}
 				
 			}
+			
+			System.out.println("There are " + counter + " even digits\n");
 			
 			break;
 			
@@ -92,7 +85,115 @@ public class Ex_1_17 {
 			
 		case 2:
 			
+			System.out.println("Enter a number:\n");
 			
+			num = sc.nextInt();
+			
+			if (num < 0) {
+				
+				System.out.println("Please enter a POSITIVE number.\n");
+				
+				break;
+				
+			}
+			
+			System.out.println("Enter a digit:\n");
+			
+			String digit = sc.next();
+			
+			
+			number = num.toString();
+						
+			char numbers2[] = number.toCharArray();
+			
+			int count2 = 0;
+			
+			for(int j = 0; number.length() > j; j++ ) {
+				
+				
+				if (numbers2[j]== digit.charAt(0)){
+					
+					count2++;
+					
+				}		
+			}
+			
+			if (count2 <= 0) {
+					
+					System.out.println("The digit is not in the number.\n");
+					
+					
+				}
+				
+				else {
+					
+					System.out.println("The digit is the number " + count2 + " times\n");
+				}
+			
+			break;
+			
+			
+		case 3:
+			
+			System.out.println("Enter a number:\n");
+			
+			num = sc.nextInt();
+			
+			if (num < 0) {
+				
+				System.out.println("Please enter a POSITIVE number.\n");
+				
+				break;
+				
+			}
+			
+			number = num.toString();
+			
+			
+			int length = number.length();
+			
+			
+			for(int k = length-1; k >= 0; k--) {
+				
+				System.out.print(number.charAt(k));
+			}
+			
+			System.out.print("\n");
+			
+			break;
+			
+		case 4:
+			
+			System.out.println("Enter a binary number:\n");
+			
+			num = sc.nextInt();
+			
+			number = num.toString();
+			
+			int multiplicator = 0;
+			int decimalValue = 0;
+			
+			for(int l = number.length()-1; l >= 0 ; l--) {
+				
+				if (number.charAt(l) != '0' && number.charAt(l) != '1') {
+					
+					System.out.println("This is not a binary number.\n");
+					
+					break;
+					
+				}
+				
+				if (number.charAt(l) == '1') {
+					
+					decimalValue += (2^multiplicator);
+					
+				}
+				
+				multiplicator++;
+			}
+			
+			
+			System.out.println("The dcimal value of " + number + " is " + decimalValue);
 		}
 		
 		}
