@@ -6,6 +6,7 @@
  * @author ik013043z1
  *
  */import java.util.Scanner;
+ import java.lang.Object;
 
 public class Ex_1_17 {
 
@@ -168,32 +169,87 @@ public class Ex_1_17 {
 			
 			num = sc.nextInt();
 			
+	
+			
 			number = num.toString();
 			
-			int multiplicator = 0;
-			int decimalValue = 0;
+			number = number.trim();
 			
-			for(int l = number.length()-1; l >= 0 ; l--) {
+			int multiplicator = 0;
+			double decimalValue = 0;
+			
+			
+			outer: for(int l = number.length()-1; l >= 0 ; l--) {
 				
 				if (number.charAt(l) != '0' && number.charAt(l) != '1') {
 					
 					System.out.println("This is not a binary number.\n");
 					
-					break;
+					
+					break outer ;
 					
 				}
 				
+				
+				
 				if (number.charAt(l) == '1') {
 					
-					decimalValue += (2^multiplicator);
+					decimalValue = decimalValue +Math.pow(2, multiplicator);
 					
 				}
 				
 				multiplicator++;
+				
 			}
 			
 			
-			System.out.println("The dcimal value of " + number + " is " + decimalValue);
+			System.out.println("The decimal value of " + number + " is " + decimalValue);
+			
+			break;
+			
+		case 5:
+			
+			
+			System.out.println("Enter a letter:\n");
+			
+			String letter = sc.next();
+			
+			letter = letter.trim();
+			
+			sc.nextLine();
+			
+			
+			System.out.println("Enter a sentence:\n");
+			 
+			String sentence = sc.nextLine();
+			
+			String words[] = sentence.split(" ");
+			
+			
+			
+			int count3 = 0;
+			
+			
+			/*for (int m = 0; words[m] != "*"; m++ ) {*/
+			for (int m = 0; m < 6; m++ ) {
+				
+				System.out.println(words[m]);
+				
+				
+				if (words[m].indexOf(letter) == 0 ) {
+					
+					count3++;
+					
+					
+				}
+				
+			}
+			
+			
+			System.out.println("There are " + count3 + " words starting with letter " + letter + "\n");
+				
+				
+			break;
 		}
 		
 		}
