@@ -250,6 +250,51 @@ public class Ex_1_17 {
 				
 				
 			break;
+			
+			
+		case 6:
+			
+			System.out.println("Enter a letter:\n");
+			
+			 letter = sc.next();
+			
+			letter = letter.trim();
+			
+			sc.nextLine();
+			
+			
+			System.out.println("Enter a sentence:\n");
+			 
+			 sentence = sc.nextLine();
+			
+			String words2[] = sentence.split(" ");
+			
+			
+			
+			count3 = 0;
+			
+			
+			/*for (int m = 0; words[m] != "*"; m++ ) {*/
+			for (int m = 0; m < 6; m++ ) {
+				
+				System.out.println(words2[m]);
+				
+				
+				if (words2[m].lastIndexOf(letter) == (words2[m].length()-1) ) {
+					
+					count3++;
+					
+					
+				}
+				
+			}
+			
+			
+			System.out.println("There are " + count3 + " words starting with letter " + letter + "\n");
+				
+				
+			break;
+		
 		}
 		
 		}
