@@ -7,6 +7,7 @@
  *
  */import java.util.Scanner;
  import java.lang.Object;
+ import java.lang.Character;
 
 public class Ex_1_17 {
 
@@ -194,7 +195,7 @@ public class Ex_1_17 {
 				
 				if (number.charAt(l) == '1') {
 					
-					decimalValue = decimalValue +Math.pow(2, multiplicator);
+					decimalValue = decimalValue + Math.pow(2, multiplicator);
 					
 				}
 				
@@ -231,7 +232,7 @@ public class Ex_1_17 {
 			
 			
 			/*for (int m = 0; words[m] != "*"; m++ ) {*/
-			for (int m = 0; m < 6; m++ ) {
+			for (int m = 0; words.length > m; m++ ) {
 				
 				System.out.println(words[m]);
 				
@@ -275,7 +276,7 @@ public class Ex_1_17 {
 			
 			
 			/*for (int m = 0; words[m] != "*"; m++ ) {*/
-			for (int m = 0; m < 6; m++ ) {
+			for (int m = 0; words2.length > m; m++ ) {
 				
 				System.out.println(words2[m]);
 				
@@ -294,7 +295,77 @@ public class Ex_1_17 {
 				
 				
 			break;
-		
+			
+			
+		case 7:
+			
+			System.out.println("Enter a word:\n");
+			
+			
+			sentence = sc.next();
+			
+			/*boolean flag = false;*/
+			
+			/*Character sentenceChar = sentence.charAt();*/
+			
+			/*for (int o = 0; sentence.length() > o; o++) {
+				
+				flag = sentence.charAt(o)
+				
+			}*/
+			
+			char palindrome[] = sentence.toCharArray();
+			
+			char palindrome2[] = {'0', '0', '0', '0', '0', '0','0','0','0','0','0','0','0'};
+			
+			int count4 = palindrome.length-1;
+			
+			for (int n = 0; palindrome.length-1 >= n; n++) {
+				
+				
+			 palindrome2[n] = palindrome[count4];
+				
+				System.out.print(palindrome2[n]);
+				System.out.print(palindrome[count4]);
+				
+				count4--;	
+				
+			}
+			
+			int counter9 = 0;
+			
+			while( counter9 < palindrome2.length) {
+			
+			System.out.print("\n"+ palindrome2[counter9] + "\n");
+			
+			counter9++;
+			}
+			
+			String sentence2 = String.valueOf(palindrome2);
+			
+			/*sentence2 = sentence.substring(0, palindrome.length-1);*/
+			
+			
+			/*System.out.println(sentence+"\n");*/
+			
+			System.out.println(sentence2 + "\n");
+			
+			
+			int answer = sentence.compareTo(sentence2);
+			
+			if (answer == 0) {
+				
+				System.out.println(sentence + " is a palindrome word\n");
+				
+			}
+			
+			else {
+				
+				System.out.println(sentence + " is not a palindrome word\n");
+				
+				
+				
+			}
 		}
 		
 		}
