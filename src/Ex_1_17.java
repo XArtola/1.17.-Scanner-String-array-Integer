@@ -5,224 +5,235 @@
 /**
  * @author ik013043z1
  *
- */import java.util.Scanner;
- import java.util.regex.*;
- import java.lang.Object;
- import java.lang.Character;
+ */
+import java.util.Scanner;
+import java.util.regex.*;
+import java.lang.Object;
+import java.lang.Character;
 
- public class Ex_1_17 {
+public class Ex_1_17 {
 
-	 /**
-	  * @param args
-	  */
-	 public static void main(String[] args) {
-		 // TODO Auto-generated method stub
-		 
-		 //Define a boolean to have a way to finish the loop when is needed
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
-		 boolean finish = false;
-		 
-		 //Start the loop and execute it while the flag boolean is false
+		// Define a boolean to have a way to finish the loop when is needed
 
-		 while(!finish) {
-			 
-			 //Print a message to the user with the options
+		boolean finish = false;
 
-			 System.out.println("What do you want to do?\n\n"
-					 + "Option 1: How many even digit has the number?\n"
-					 + "Option 2: Give a positive number and a digit, tell whether the digit appears in the number or not and how many times.\n"
-					 + "Option 3: Given a positive number it gives us the inverted number.\n"
-					 + "Option 4: Given a binary number it gives us its decimal value.\n"
-					 + "Option 5: Given a sentence and a letter it gives the number of words of the sentence that begins with that letter.\n"
-					 + "Option 6: Given a sentence and a letter it gives the number of words of the sentence that ends with that letter.\n"
-					 + "Option 7: Given a word it tells the user whether the word is a palindrome or it is not.\n"
-					 + "Option 8: Finish the program.\n"
-					 + "Select an option:\n");
+		// Start the loop and execute it while the flag boolean is false
 
+		while (!finish) {
 
-			 // Create a Scanner object and take the selection of the user
-			 
-			 Scanner sc = new Scanner (System.in);
+			// Print a message to the user with the options
 
-			 int selection = sc.nextInt();
-			 
-			 // Depending on the selection do different things using switch structure
+			System.out.println("What do you want to do?\n\n" + "Option 1: How many even digit has the number?\n"
+					+ "Option 2: Give a positive number and a digit, tell whether the digit appears in the number or not and how many times.\n"
+					+ "Option 3: Given a positive number it gives us the inverted number.\n"
+					+ "Option 4: Given a binary number it gives us its decimal value.\n"
+					+ "Option 5: Given a sentence and a letter it gives the number of words of the sentence that begins with that letter.\n"
+					+ "Option 6: Given a sentence and a letter it gives the number of words of the sentence that ends with that letter.\n"
+					+ "Option 7: Given a word it tells the user whether the word is a palindrome or it is not.\n"
+					+ "Option 8: Finish the program.\n" + "Select an option:\n");
 
-			 switch (selection){
-			 
-			 
-			 // Ask a number and say how many even (bikoitia) digits has it 
+			// Create a Scanner object and take the selection of the user
 
-			 case 1:
+			Scanner sc = new Scanner(System.in);
 
-				 // Take a number and see if it is positive, if not finish the program.
+			int selection = sc.nextInt();
 
-				 System.out.println("Enter a number.\n");
+			// Depending on the selection do different things using switch structure
 
-				 Integer num = sc.nextInt();
+			switch (selection) {
 
-				 if (num < 0) {
+			// Ask a number and say how many even (bikoitia) digits has it
 
-					 System.out.println("Please enter a POSITIVE number.\n");
+			case 1:
 
-					 break;
+				// Take a number and see if it is positive, if not finish the program.
 
-				 }
+				System.out.println("Enter a number.\n");
 
+				Integer num = sc.nextInt();
 
-				 // Convert the int into a string and then into an character array to compare each value apart
+				if (num < 0) {
 
-				 String number = num.toString();
+					System.out.println("Please enter a POSITIVE number.\n");
 
-				 char numbers[] = number.toCharArray();
+					break;
 
-				 int counter = 0;
-				 
-				 // Compare each digit of a number to digits between 1-9 to know if they are even or not
+				}
 
-				 for (int i = 0; number.length() > i; i++) {
+				// Convert the int into a string and then into an character array to compare
+				// each value apart
 
-					 switch(numbers[i]) {
+				String number = num.toString();
 
+				char numbers[] = number.toCharArray();
 
-					 case '0': case '1': case '3': case '5': case '7': case '9':
-						 break;
+				int counter = 0;
 
-					 case '2': case '4': case '6': case '8':
-						 counter ++;
-						 break;
-					 }
+				// Compare each digit of a number to digits between 1-9 to know if they are even
+				// or not
 
-				 }
-				 
-				 //Print the results
+				for (int i = 0; number.length() > i; i++) {
 
-				 System.out.println("There are " + counter + " even digits\n");
+					switch (numbers[i]) {
 
-				 break;
+					case '0':
+					case '1':
+					case '3':
+					case '5':
+					case '7':
+					case '9':
+						break;
 
-			// Ask for a POSITIVE number and a digit, then say how many times appears the digit in the number
+					case '2':
+					case '4':
+					case '6':
+					case '8':
+						counter++;
+						break;
+					}
 
-			 case 2:
-				 
-				 // Ask for a number and check if it is positive 
+				}
 
-				 System.out.println("Enter a positive number:\n");
+				// Print the results
 
-				 num = sc.nextInt();
-				 
-				 boolean flagPositive = true;
-				 
+				System.out.println("There are " + counter + " even digits\n");
 
-				 if (num < 0) {
+				break;
 
-					 System.out.println("Please enter a POSITIVE number.\n");
-					 
-					 flagPositive = false;
+			// Ask for a POSITIVE number and a digit, then say how many times appears the
+			// digit in the number
 
-					 break;
+			case 2:
 
-				 }
-				 
-				 // If the number is positive (flagPositive== true) go on with the search
-				 
-				 if(flagPositive) {
-					 
-				// Ask for a digit
+				// Ask for a number and check if it is positive
 
-				 System.out.println("Enter a digit:\n");
+				System.out.println("Enter a positive number:\n");
+				
+				// Label the if structure to be able to break it from inside
+				
+				// Enter the loop only if the next token is int type
 
-				 String digit = sc.next();
+				positive: if (sc.hasNextInt()) {
 
-				 // Convert the number into a string and then into a Char array to see if it matches with the digit
-				 
-				 number = num.toString();
+					num = sc.nextInt();
+					
+					// If the scanned variable is negative break the outer loop and finish
 
-				 char numbers2[] = number.toCharArray();
+					if (num < 0) {
 
-				 int count2 = 0;
-				 
-				 // Use a loop to check if any of the digit of the numbers matches with the users digit
+						System.out.println("Please enter a POSITIVE number.\n");
 
-				 for(int j = numbers2.length-1; j >= 0; j-- ) {
+						break positive;
 
+					}
 
-					 if (numbers2[j] == digit.charAt(0)){
-						 
-						 // If there is a coincidence, count how many times
+					// Ask for a digit
 
-						 count2++;
+					System.out.println("Enter a digit:\n");
 
-					 }		
-				 }
-				 
-				 //If there is no coincidence...
+					String digit = sc.next();
 
-				 if (count2 <= 0) {
+					// Convert the number into a string and then into a Char array to see if it
+					// matches with the digit
 
-					 System.out.println("The digit is not in the number.\n");
+					number = num.toString();
 
+					char numbers2[] = number.toCharArray();
 
-				 }
-				 
-				 //If there are coincidences...
+					int count2 = 0;
 
-				 else {
+					// Use a loop to check if any of the digit of the numbers matches with the users
+					// digit
 
-					 System.out.println("The digit is in the number " + count2 + " times\n");
-				 }
-				 
-				 }
+					for (int j = numbers2.length - 1; j >= 0; j--) {
 
-				 break;
+						if (numbers2[j] == digit.charAt(0)) {
+
+							// If there is a coincidence, count how many times
+
+							count2++;
+
+						}
+					}
+
+					// If there is no coincidence...
+
+					if (count2 <= 0) {
+
+						System.out.println("The digit is not in the number.\n");
+
+					}
+
+					// If there are coincidences...
+
+					else {
+
+						System.out.println("The digit is in the number " + count2 + " times\n");
+					}
+
+				}
+
+				else {
+
+					System.out.println("Please enter a POSITIVE number.\n");
+
+				}
+
+				break;
 
 			// Ask for a positive number and print the inverted
-				 
-			 case 3:
-				 
-				 // Ask for a number and see if it is positive
 
-				 System.out.println("Enter a number:\n");
+			case 3:
 
-				 num = sc.nextInt();
-				 
-				 boolean flagPositive2 = true;
-				 
-				 // If the number is negative put the flag in false
+				// Ask for a number and see if it is positive
 
-				 if (num < 0) {
+				System.out.println("Enter a number:\n");
 
-					 System.out.println("Please enter a POSITIVE number.\n");
-					 
-					 flagPositive2 = false;
+				num = sc.nextInt();
 
-					 break;
+				boolean flagPositive2 = true;
 
-				 }
-				 
-				 // If the flag is positive go on
-				 
-				 if (flagPositive2) {
-					 
-				// Convert the number into a string a measure it
+				// If the number is negative put the flag in false
 
-				 number = num.toString();
+				if (num < 0) {
 
-				 int length = number.length();
-				 
-				 // Print it in inverted
+					System.out.println("Please enter a POSITIVE number.\n");
 
-				 for(int k = length-1; k >= 0; k--) {
+					flagPositive2 = false;
 
-					 System.out.print(number.charAt(k));
-				 }
+					break;
 
-				 }
-				 
-				 System.out.print("\n");
+				}
 
-				 break;
-				 
+				// If the flag is positive go on
+
+				if (flagPositive2) {
+
+					// Convert the number into a string a measure it
+
+					number = num.toString();
+
+					int length = number.length();
+
+					// Print it in inverted
+
+					for (int k = length - 1; k >= 0; k--) {
+
+						System.out.print(number.charAt(k));
+					}
+
+				}
+
+				System.out.print("\n");
+
+				break;
+
 			// Convert a binary number into a decimal
 
 			case 4:
@@ -268,181 +279,173 @@
 				System.out.println("The decimal value of " + number + " is " + decimalValue);
 
 				break;
-				
-			// Ask for a sentence and a letter and say how many words starting with this letter are there
 
-			 case 5:
-				 
-				 // Ask for a letter and quit blank spaces
+			// Ask for a sentence and a letter and say how many words starting with this
+			// letter are there
 
-				 System.out.println("Enter a letter:\n");
+			case 5:
 
-				 String letter = sc.next();
-
-				 letter = letter.trim();
-
-				 sc.nextLine();
-				 
-				 
-				 // Ask for a sentence and store each word in a cell (array)
-
-				 System.out.println("Enter a sentence:\n");
-
-				 String sentence = sc.nextLine();
-
-				 String words[] = sentence.split(" ");
-
-
-				 // Use a for loop to see if the word of each cell starts with the letter
-
-				 int count3 = 0;
-
-				 for (int m = 0; words.length > m; m++ ) {
-
-					 if (words[m].indexOf(letter) == 0 ) {
-
-						 count3++;
-
-					 }
-
-				 }
-
-				 System.out.println("There are " + count3 + " words starting with letter " + letter + "\n");
-
-				 break;
-
-			// Ask for a sentence and a letter and say how many words finishing with this letter are there
-				 
-			 case 6:
-				 
 				// Ask for a letter and quit blank spaces
 
-				 System.out.println("Enter a letter:\n");
+				System.out.println("Enter a letter:\n");
 
-				 letter = sc.next();
+				String letter = sc.next();
 
-				 letter = letter.trim();
+				letter = letter.trim();
 
-				 sc.nextLine();
-				 
-				 
+				sc.nextLine();
+
 				// Ask for a sentence and store each word in a cell (array)
 
-				 System.out.println("Enter a sentence:\n");
+				System.out.println("Enter a sentence:\n");
 
-				 sentence = sc.nextLine();
+				String sentence = sc.nextLine();
 
-				 String words2[] = sentence.split(" ");
+				String words[] = sentence.split(" ");
 
+				// Use a for loop to see if the word of each cell starts with the letter
 
-				 // Use a for loop to see if the word of each cell finishes with the letter
-				 
-				 count3 = 0;
+				int count3 = 0;
 
-				 for (int m = 0; words2.length > m; m++ ) {
+				for (int m = 0; words.length > m; m++) {
 
-					 if (words2[m].lastIndexOf(letter) == (words2[m].length()-1) ) {
+					if (words[m].indexOf(letter) == 0) {
 
-						 count3++;
+						count3++;
 
-					 }
+					}
 
-				 }
+				}
 
-				 System.out.println("There are " + count3 + " words starting with letter " + letter + "\n");
+				System.out.println("There are " + count3 + " words starting with letter " + letter + "\n");
 
-				 break;
+				break;
+
+			// Ask for a sentence and a letter and say how many words finishing with this
+			// letter are there
+
+			case 6:
+
+				// Ask for a letter and quit blank spaces
+
+				System.out.println("Enter a letter:\n");
+
+				letter = sc.next();
+
+				letter = letter.trim();
+
+				sc.nextLine();
+
+				// Ask for a sentence and store each word in a cell (array)
+
+				System.out.println("Enter a sentence:\n");
+
+				sentence = sc.nextLine();
+
+				String words2[] = sentence.split(" ");
+
+				// Use a for loop to see if the word of each cell finishes with the letter
+
+				count3 = 0;
+
+				for (int m = 0; words2.length > m; m++) {
+
+					if (words2[m].lastIndexOf(letter) == (words2[m].length() - 1)) {
+
+						count3++;
+
+					}
+
+				}
+
+				System.out.println("There are " + count3 + " words starting with letter " + letter + "\n");
+
+				break;
 
 			// The user enters a word and the program says if its palindrome or not
-				 
-			 case 7:
-				 
-				 // Ask for a word and quit the blank spaces
 
-				 System.out.println("Enter a word:\n");
-				 
-				 sentence = sc.next();
-				 
-				 sentence = sentence.trim();
-				 
-				 
-				 // Check if the word has any number, if it has finish the loop
+			case 7:
 
-				 boolean flag = true;
+				// Ask for a word and quit the blank spaces
 
-				 check: for (int o = 0; sentence.length()-1 > o; o++) {
-					 
-					 if ( Character.isDigit(sentence.charAt(o))) {
+				System.out.println("Enter a word:\n");
 
-						 System.out.println("Enter only letters!!\n");
-						 
-						 flag = false;
+				sentence = sc.next();
 
-						 break check;
+				sentence = sentence.trim();
 
-					 }
+				// Check if the word has any number, if it has finish the loop
 
-				 }
-				 
-				 
-				 //If the flag is true execute the loop
-				 
-				 if (flag) {
-					
-					 String sentence2 = " ";
-					 
-					 
-					 // Invert the word
+				boolean flag = true;
 
-					 int count4 = 0;
+				check: for (int o = 0; sentence.length() - 1 > o; o++) {
 
-					 for (int n = sentence.length()-1; n >= 0; n--) {
+					if (Character.isDigit(sentence.charAt(o))) {
 
-						 sentence2+=  sentence.substring(n, n+1);
+						System.out.println("Enter only letters!!\n");
 
-						 count4++;
+						flag = false;
 
-					 }
+						break check;
 
-					 sentence2 = sentence2.trim();
-					 
-					 
-					 // Compare the inverted word to the original
+					}
 
-					 int answer = sentence.compareTo(sentence2);
-					 
-					 
-					 //If they are the same...
+				}
 
-					 if (answer == 0) {
+				// If the flag is true execute the loop
 
-						 System.out.println(sentence + " is a palindrome word\n");
+				if (flag) {
 
-					 }
-					 
-					 
-					 // If not...
+					String sentence2 = " ";
 
-					 else {
+					// Invert the word
 
-						 System.out.println(sentence + " is not a palindrome word\n");
+					int count4 = 0;
 
-					 }
-				 }
-				 
-				 break;
-				 
+					for (int n = sentence.length() - 1; n >= 0; n--) {
+
+						sentence2 += sentence.substring(n, n + 1);
+
+						count4++;
+
+					}
+
+					sentence2 = sentence2.trim();
+
+					// Compare the inverted word to the original
+
+					int answer = sentence.compareTo(sentence2);
+
+					// If they are the same...
+
+					if (answer == 0) {
+
+						System.out.println(sentence + " is a palindrome word\n");
+
+					}
+
+					// If not...
+
+					else {
+
+						System.out.println(sentence + " is not a palindrome word\n");
+
+					}
+				}
+
+				break;
+
 			// Finish the program
 
-			 case 8:
+			case 8:
 
-				 finish = true;
+				finish = true;
 
-				 break;
+				break;
 
-			 }
+			}
 
-		 }
-	 }
+		}
+	}
 
- }
+}
