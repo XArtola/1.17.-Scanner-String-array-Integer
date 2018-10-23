@@ -442,6 +442,10 @@ public class Ex_1_17 {
 				finish = true;
 
 				break;
+				
+			default: 
+				
+				System.out.println("This is not a selectable option [1-8]");
 
 			}
 
