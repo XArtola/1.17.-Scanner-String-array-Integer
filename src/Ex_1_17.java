@@ -52,57 +52,82 @@ public class Ex_1_17 {
 
 			case 1:
 
-				// Take a number and see if it is positive, if not finish the program.
+				boolean continueFlag = true;
 
-				System.out.println("Enter a number.\n");
+				while (continueFlag) {
 
-				Integer num = sc.nextInt();
+					// Take a number and see if it is positive, if not finish the program.
 
-				if (num < 0) {
+					System.out.println("Enter a number.\n");
 
-					System.out.println("Please enter a POSITIVE number.\n");
+				
+					
+					Integer num = sc.nextInt();
 
-					break;
+					if (num < 0) {
 
-				}
+						System.out.println("This is not a POSITIVE number.\n");
 
-				// Convert the int into a string and then into an character array to compare
-				// each value apart
-
-				String number = num.toString();
-
-				char numbers[] = number.toCharArray();
-
-				int counter = 0;
-
-				// Compare each digit of a number to digits between 1-9 to know if they are even
-				// or not
-
-				for (int i = 0; number.length() > i; i++) {
-
-					switch (numbers[i]) {
-
-					case '0':
-					case '1':
-					case '3':
-					case '5':
-					case '7':
-					case '9':
 						break;
 
-					case '2':
-					case '4':
-					case '6':
-					case '8':
-						counter++;
-						break;
+					}
+
+					// Convert the int into a string and then into an character array to compare
+					// each value apart
+
+					String number = num.toString();
+
+					char numbers[] = number.toCharArray();
+
+					int counter = 0;
+
+					// Compare each digit of a number to digits between 1-9 to know if they are even
+					// or not
+
+					for (int i = 0; number.length() > i; i++) {
+
+						switch (numbers[i]) {
+
+						case '0':
+						case '1':
+						case '3':
+						case '5':
+						case '7':
+						case '9':
+							break;
+
+						case '2':
+						case '4':
+						case '6':
+						case '8':
+							counter++;
+							break;
+						}
+
+					}
+
+					// Print the results
+
+					System.out.println("There are " + counter + " even digits\n");
+
+					System.out.println("Do you want to continue this ? [y/n]\n");
+
+					String otherLoop = sc.next();
+
+					while (otherLoop.charAt(0) != 'y' && otherLoop.charAt(0) != 'n') {
+
+						System.out.println("You have entered and incorrect value, please try again");
+						otherLoop = sc.next();
+
+					}
+
+					if (otherLoop.charAt(0) == 'n') {
+
+						continueFlag = false;
+
 					}
 
 				}
-
-				// Print the results
-
-				System.out.println("There are " + counter + " even digits\n");
 
 				break;
 
@@ -110,78 +135,84 @@ public class Ex_1_17 {
 			// digit in the number
 
 			case 2:
-
-				// Ask for a number and check if it is positive
-
-				System.out.println("Enter a positive number:\n");
 				
-				// Label the if structure to be able to break it from inside
-				
-				// Enter the loop only if the next token is int type
+				boolean continueFlag2 = true;
 
-				positive: if (sc.hasNextInt()) {
+				while (continueFlag2) {
 
-					num = sc.nextInt();
-					
-					// If the scanned variable is negative break the outer loop and finish
+					// Ask for a number and check if it is positive
 
-					if (num < 0) {
+					System.out.println("Enter a positive number:\n");
 
-						System.out.println("Please enter a POSITIVE number.\n");
+					// Label the if structure to be able to break it from inside
 
-						break positive;
+					// Enter the loop only if the next token is int type
 
-					}
+					positive: if (sc.hasNextInt()) {
 
-					// Ask for a digit
+						Integer num2 = sc.nextInt();
 
-					System.out.println("Enter a digit:\n");
+						// If the scanned variable is negative break the outer loop and finish
 
-					String digit = sc.next();
+						if (num2 < 0) {
 
-					// Convert the number into a string and then into a Char array to see if it
-					// matches with the digit
+							System.out.println("Please enter a POSITIVE number.\n");
 
-					number = num.toString();
-
-					char numbers2[] = number.toCharArray();
-
-					int count2 = 0;
-
-					// Use a loop to check if any of the digit of the numbers matches with the users
-					// digit
-
-					for (int j = numbers2.length - 1; j >= 0; j--) {
-
-						if (numbers2[j] == digit.charAt(0)) {
-
-							// If there is a coincidence, count how many times
-
-							count2++;
+							break positive;
 
 						}
+
+						// Ask for a digit
+
+						System.out.println("Enter a digit:\n");
+
+						String digit = sc.next();
+
+						// Convert the number into a string and then into a Char array to see if it
+						// matches with the digit
+
+						String number2 = num2.toString();
+
+						char numbers2[] = number2.toCharArray();
+
+						int count2 = 0;
+
+						// Use a loop to check if any of the digit of the numbers matches with the users
+						// digit
+
+						for (int j = numbers2.length - 1; j >= 0; j--) {
+
+							if (numbers2[j] == digit.charAt(0)) {
+
+								// If there is a coincidence, count how many times
+
+								count2++;
+
+							}
+						}
+
+						// If there is no coincidence...
+
+						if (count2 <= 0) {
+
+							System.out.println("The digit is not in the number.\n");
+
+						}
+
+						// If there are coincidences...
+
+						else {
+
+							System.out.println("The digit is in the number " + count2 + " times\n");
+						}
+
 					}
-
-					// If there is no coincidence...
-
-					if (count2 <= 0) {
-
-						System.out.println("The digit is not in the number.\n");
-
-					}
-
-					// If there are coincidences...
 
 					else {
 
-						System.out.println("The digit is in the number " + count2 + " times\n");
+						System.out.println("Please enter a POSITIVE number.\n");
+
 					}
-
-				}
-
-				else {
-
-					System.out.println("Please enter a POSITIVE number.\n");
 
 				}
 
@@ -195,13 +226,13 @@ public class Ex_1_17 {
 
 				System.out.println("Enter a number:\n");
 
-				num = sc.nextInt();
+				Integer num3 = sc.nextInt();
 
 				boolean flagPositive2 = true;
 
 				// If the number is negative put the flag in false
 
-				if (num < 0) {
+				if (num3 < 0) {
 
 					System.out.println("Please enter a POSITIVE number.\n");
 
@@ -217,15 +248,15 @@ public class Ex_1_17 {
 
 					// Convert the number into a string a measure it
 
-					number = num.toString();
+					String number3 = num3.toString();
 
-					int length = number.length();
+					int length = number3.length();
 
 					// Print it in inverted
 
 					for (int k = length - 1; k >= 0; k--) {
 
-						System.out.print(number.charAt(k));
+						System.out.print(number3.charAt(k));
 					}
 
 				}
@@ -242,13 +273,13 @@ public class Ex_1_17 {
 
 				System.out.println("Enter a binary number:\n");
 
-				num = sc.nextInt();
+				Integer num4 = sc.nextInt();
 
-				number = num.toString();
+				String number4 = num4.toString();
 
 				// Be sure that the only data in the string is a number (no blank spaces)
 
-				number = number.trim();
+				number4 = number4.trim();
 
 				int multiplicator = 0;
 				double decimalValue = 0;
@@ -256,9 +287,9 @@ public class Ex_1_17 {
 				// See if there is any digit that is not 1 or 0. If there is stop the for
 				// structure
 
-				outer: for (int l = number.length() - 1; l >= 0; l--) {
+				outer: for (int l = number4.length() - 1; l >= 0; l--) {
 
-					if (number.charAt(l) != '0' && number.charAt(l) != '1') {
+					if (number4.charAt(l) != '0' && number4.charAt(l) != '1') {
 
 						System.out.println("This is not a binary number.\n");
 
@@ -266,7 +297,7 @@ public class Ex_1_17 {
 
 					}
 
-					if (number.charAt(l) == '1') {
+					if (number4.charAt(l) == '1') {
 
 						decimalValue = decimalValue + Math.pow(2, multiplicator);
 
@@ -276,7 +307,7 @@ public class Ex_1_17 {
 
 				}
 
-				System.out.println("The decimal value of " + number + " is " + decimalValue);
+				System.out.println("The decimal value of " + number4 + " is " + decimalValue);
 
 				break;
 
@@ -442,9 +473,9 @@ public class Ex_1_17 {
 				finish = true;
 
 				break;
-				
-			default: 
-				
+
+			default:
+
 				System.out.println("This is not a selectable option [1-8]");
 
 			}
